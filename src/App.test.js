@@ -1,6 +1,22 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 
+beforeAll(()=>{
+  console.log("-------------- Before all hook -------------")
+})
+
+beforeEach(()=>{
+  console.log("--------------- Before each ---------------")
+})
+
+afterAll(()=>{
+  console.log("-------------- After all hook -------------")
+})
+
+afterEach(()=>{
+  console.log("--------------- After each ---------------")
+})
+
 describe("UI test case group", () => {
 
   test("Test first React app case", () => {
