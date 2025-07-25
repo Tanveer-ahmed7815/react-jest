@@ -1,19 +1,19 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 
-beforeAll(()=>{
+beforeAll(() => {
   console.log("-------------- Before all hook -------------")
 })
 
-beforeEach(()=>{
+beforeEach(() => {
   console.log("--------------- Before each ---------------")
 })
 
-afterAll(()=>{
+afterAll(() => {
   console.log("-------------- After all hook -------------")
 })
 
-afterEach(()=>{
+afterEach(() => {
   console.log("--------------- After each ---------------")
 })
 
@@ -49,7 +49,7 @@ describe("API test case group", () => {
 
   })
 
-  describe("Nested decribe",()=>{
+  describe("Nested decribe", () => {
     test("API Testing input box", () => {
       render(<App />);
       let checkInput = screen.getByRole("textbox");
@@ -61,24 +61,33 @@ describe("API test case group", () => {
 
 })
 
-describe("On change event testing",()=>{
+describe("On change event testing", () => {
 
-  test("Onchange event testing",()=>{
+  test("Onchange event testing", () => {
     render(<App />)
     let input = screen.getByRole("textbox");
-    fireEvent.change(input,{target:{value:'a'}});
+    fireEvent.change(input, { target: { value: 'a' } });
     expect(input.value).toBe("atest");
   })
 
 })
 
-describe("On Click event testing for Button",()=>{
+describe("On Click event testing for Button", () => {
 
-  test("Onclick event testing for button",()=>{
+  test("Onclick event testing for button", () => {
     render(<App />)
     let btn = screen.getByRole("button");
     fireEvent.click(btn);
     expect(screen.getByText("updated data")).toBeInTheDocument();
   })
 
+})
+
+describe('Snapshot test cases', () => {
+  test('Snapshot for App component', () => {
+
+    const container = render(<App />);
+    expect(container).toMatchSnapshot();
+
+  })
 })
