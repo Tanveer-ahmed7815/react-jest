@@ -55,3 +55,14 @@ describe("On change event testing",()=>{
   })
 
 })
+
+describe("On Click event testing for Button",()=>{
+
+  test("Onclick event testing for button",()=>{
+    render(<App />)
+    let btn = screen.getByRole("button");
+    fireEvent.click(btn);
+    expect(screen.getByText("updated data")).toBeInTheDocument();
+  })
+
+})
