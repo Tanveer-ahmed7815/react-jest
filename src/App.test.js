@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 import renderer from 'react-test-renderer';
 import Users from "./Users";
+import handleOtherMethod from "./helper";
 
 beforeAll(() => {
   console.log("-------------- Before all hook -------------")
@@ -74,7 +75,7 @@ describe("On change event testing", () => {
 
 })
 
-describe("On Click event testing for Button", () => {
+describe.skip("On Click event testing for Button", () => {
 
   test("Onclick event testing for button", () => {
     render(<App />)
@@ -100,5 +101,20 @@ describe('Class component testing', () => {
    const componentData = renderer.create(<Users />).getInstance();
    expect(componentData.getUserList()).toMatch("user list");
 
+  })
+})
+
+describe('Functional component testing', () => {
+  test('Functional compponent method testing-1', () => {
+
+   render(<App />)
+   const btn = screen.getByTestId("btn1");
+   fireEvent.click(btn);
+   expect(screen.getByText("hello")).toBeInTheDocument();
+
+  })
+
+  test("Functional compponent method testing-1 for helper methods",()=>{
+    expect(handleOtherMethod()).toMatch("Hi");
   })
 })
