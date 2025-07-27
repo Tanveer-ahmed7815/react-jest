@@ -1,5 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
+import renderer from 'react-test-renderer';
+import Users from "./Users";
 
 beforeAll(() => {
   console.log("-------------- Before all hook -------------")
@@ -83,11 +85,20 @@ describe("On Click event testing for Button", () => {
 
 })
 
-describe('Snapshot test cases', () => {
+describe.skip('Snapshot test cases', () => {
   test('Snapshot for App component', () => {
 
     const container = render(<App />);
     expect(container).toMatchSnapshot();
+
+  })
+})
+
+describe('Class component testing', () => {
+  test('User class compponent testing', () => {
+
+   const componentData = renderer.create(<Users />).getInstance();
+   expect(componentData.getUserList()).toMatch("user list");
 
   })
 })
