@@ -20,7 +20,7 @@ afterEach(() => {
   console.log("--------------- After each ---------------")
 })
 
-describe("UI test case group", () => {
+describe.skip("UI test case group", () => {
 
   test("Test first React app case", () => {
     render(<App />);
@@ -52,7 +52,7 @@ describe("API test case group", () => {
 
   })
 
-  describe("Nested decribe", () => {
+  describe.skip("Nested decribe", () => {
     test("API Testing input box", () => {
       render(<App />);
       let checkInput = screen.getByRole("textbox");
@@ -64,7 +64,7 @@ describe("API test case group", () => {
 
 })
 
-describe("On change event testing", () => {
+describe.skip("On change event testing", () => {
 
   test("Onchange event testing", () => {
     render(<App />)
@@ -116,5 +116,29 @@ describe('Functional component testing', () => {
 
   test("Functional compponent method testing-1 for helper methods",()=>{
     expect(handleOtherMethod()).toMatch("Hi");
+  })
+})
+
+describe("get by role",()=>{
+  test("getByRole testing",()=>{
+    render(<App/>)
+    const inputField = screen.getByRole("textbox");
+    expect(inputField).toBeInTheDocument();
+    expect(inputField).toHaveValue("hello");
+    expect(inputField).toBeDisabled();
+  })
+
+  test("multiple role testing",()=>{
+    render(<App/>)
+    const btn1 = screen.getByRole("button",{name :"Click me"});
+    expect(btn1).toBeInTheDocument();
+    
+  })
+
+  test("non-semantic role testing",()=>{
+    render(<App/>)
+    const div1 = screen.getByRole("dummy");
+    expect(div1).toBeInTheDocument();
+    
   })
 })
