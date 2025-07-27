@@ -39,6 +39,16 @@ function App() {
         </div>
       <br />
       <br />
+
+      <h1>getAllByRole</h1>
+     <button>Click me</button>
+     <select>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+     </select>
+      <br />
+      <br />
      <img title='AI Genrated Image' src='https://image.jimcdn.com/app/cms/image/transf/none/path/sa6549607c78f5c11/image/i4eeacaa2dbf12d6d/version/1490299332/most-beautiful-landscapes-in-europe-lofoten-european-best-destinations-copyright-iakov-kalinin.jpg3919321_1443393332_n.jpg'
      />
 

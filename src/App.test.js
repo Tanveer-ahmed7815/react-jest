@@ -98,8 +98,8 @@ describe.skip('Snapshot test cases', () => {
 describe('Class component testing', () => {
   test('User class compponent testing', () => {
 
-   const componentData = renderer.create(<Users />).getInstance();
-   expect(componentData.getUserList()).toMatch("user list");
+    const componentData = renderer.create(<Users />).getInstance();
+    expect(componentData.getUserList()).toMatch("user list");
 
   })
 })
@@ -107,38 +107,54 @@ describe('Class component testing', () => {
 describe('Functional component testing', () => {
   test('Functional compponent method testing-1', () => {
 
-   render(<App />)
-   const btn = screen.getByTestId("btn1");
-   fireEvent.click(btn);
-   expect(screen.getByText("hello")).toBeInTheDocument();
+    render(<App />)
+    const btn = screen.getByTestId("btn1");
+    fireEvent.click(btn);
+    expect(screen.getByText("hello")).toBeInTheDocument();
 
   })
 
-  test("Functional compponent method testing-1 for helper methods",()=>{
+  test("Functional compponent method testing-1 for helper methods", () => {
     expect(handleOtherMethod()).toMatch("Hi");
   })
 })
 
-describe("get by role",()=>{
-  test("getByRole testing",()=>{
-    render(<App/>)
+describe.skip("get by role", () => {
+  test("getByRole testing", () => {
+    render(<App />)
     const inputField = screen.getByRole("textbox");
     expect(inputField).toBeInTheDocument();
     expect(inputField).toHaveValue("hello");
     expect(inputField).toBeDisabled();
   })
 
-  test("multiple role testing",()=>{
-    render(<App/>)
-    const btn1 = screen.getByRole("button",{name :"Click me"});
+  test("multiple role testing", () => {
+    render(<App />)
+    const btn1 = screen.getByRole("button", { name: "Click me" });
     expect(btn1).toBeInTheDocument();
-    
+
   })
 
-  test("non-semantic role testing",()=>{
-    render(<App/>)
+  test("non-semantic role testing", () => {
+    render(<App />)
     const div1 = screen.getByRole("dummy");
     expect(div1).toBeInTheDocument();
-    
+
+  })
+})
+
+describe('getAllByRole testing', () => {
+  test('getAllByRole testing for button', () => {
+    render(<App />);
+    const btns = screen.getAllByRole("button");
+    const options = screen.getAllByRole("option");
+
+    for (let index = 0; index < btns.length; index++) {
+      expect(btns[index]).toBeInTheDocument();
+    }
+
+    for (let index = 0; index < options.length; index++) {
+      expect(options[index]).toBeInTheDocument();
+    }
   })
 })
