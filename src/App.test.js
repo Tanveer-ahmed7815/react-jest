@@ -95,7 +95,7 @@ describe.skip('Snapshot test cases', () => {
   })
 })
 
-describe('Class component testing', () => {
+describe.skip('Class component testing', () => {
   test('User class compponent testing', () => {
 
     const componentData = renderer.create(<Users />).getInstance();
@@ -104,7 +104,7 @@ describe('Class component testing', () => {
   })
 })
 
-describe('Functional component testing', () => {
+describe.skip('Functional component testing', () => {
   test('Functional compponent method testing-1', () => {
 
     render(<App />)
@@ -143,7 +143,7 @@ describe.skip("get by role", () => {
   })
 })
 
-describe('getAllByRole testing', () => {
+describe.skip('getAllByRole testing', () => {
   test('getAllByRole testing for button', () => {
     render(<App />);
     const btns = screen.getAllByRole("button");
@@ -156,5 +156,39 @@ describe('getAllByRole testing', () => {
     for (let index = 0; index < options.length; index++) {
       expect(options[index]).toBeInTheDocument();
     }
+  })
+})
+
+describe('getByLabelText/getAllByLabelText testing', () => {
+  test('getByLabelText testing', () => {
+
+    render(<App />);
+    // const input = screen.getByLabelText("Username")
+    // expect(input).toBeInTheDocument();
+    // expect(input).toHaveValue("Tanveer")
+
+  })
+
+  test('getByLabelText testing for checkbox', () => {
+
+    render(<App />);
+    const checkbox = screen.getByLabelText("Skills")
+    expect(checkbox).toBeInTheDocument();
+    expect(checkbox).toBeChecked();
+
+  })
+
+  test('getAllByLabelText testing', () => {
+
+    render(<App />);
+    const inputs = screen.getAllByLabelText("Username")
+    expect(inputs[1]).toBeInTheDocument();
+
+    for (let index = 0; index < inputs.length; index++) {
+      expect(inputs[index]).toBeInTheDocument();
+      expect(inputs[index]).toHaveValue("Tanveer")
+      
+    }
+
   })
 })

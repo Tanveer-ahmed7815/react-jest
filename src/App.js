@@ -47,6 +47,24 @@ function App() {
       <option>2</option>
       <option>3</option>
      </select>
+     <br />
+     <br />
+     <label htmlFor='user-name1'>Username</label>
+      <input type='text' id='user-name1' defaultValue={"Tanveer"}/>
+      <br />
+      <br />
+      <label htmlFor='user-name2'>Username</label>
+      <input type='text' id='user-name2' defaultValue={"Tanveer"}/>
+      <br />
+      <br />
+      <label htmlFor='user-name3'>Username</label>
+      <input type='text' id='user-name3' defaultValue={"Tanveer"}/>
+
+      <br />
+      <br />
+      <label htmlFor='skills'>Skills</label>
+      <input type='checkbox' id='skills' defaultChecked={true}/>
+
       <br />
       <br />
      <img title='AI Genrated Image' src='https://image.jimcdn.com/app/cms/image/transf/none/path/sa6549607c78f5c11/image/i4eeacaa2dbf12d6d/version/1490299332/most-beautiful-landscapes-in-europe-lofoten-european-best-destinations-copyright-iakov-kalinin.jpg3919321_1443393332_n.jpg'
