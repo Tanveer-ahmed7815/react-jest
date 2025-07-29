@@ -63,7 +63,17 @@ function App() {
       <br />
       <br />
 
-      <input type='text' placeholder='enter username' defaultValue={"Tanveer"}/>
+      <input type='text' placeholder='enter username' />
+      <input type='text' placeholder='enter username' />
+      <input type='text' placeholder='enter username' />
+      <input type='text' placeholder='enter username' />
+
+      <br />
+      <br />
+
+      <button>Login</button>
+      <p className='paragraph'>Login</p>
+      <h1>Login</h1>
 
       <br />
       <br />

@@ -193,7 +193,7 @@ describe.skip('getByLabelText/getAllByLabelText testing', () => {
   })
 })
 
-describe('getByPlaceholderText testing', () => {
+describe.skip('getByPlaceholderText testing', () => {
   test('getByPlaceholderText testing', () => {
     render(<App />);
     // const inputs = screen.getByPlaceholderText("enter username")
@@ -209,6 +209,25 @@ describe('getByPlaceholderText testing', () => {
       expect(inputs[index]).toBeInTheDocument();
       
     }
+
+  })
+})
+
+describe('getByPlaceholderText testing', () => {
+  test('getByPlaceholderText testing', () => {
+    render(<App />);
+    // const inputs = screen.getByText("Login")
+    // expect(inputs).toBeInTheDocument();
+
+  })
+  test('getByPlaceholderText testing', () => {
+    render(<App />);
+    const inputs = screen.getAllByText("Login");
+    
+    for (let index = 0; index < inputs.length; index++) {
+      expect(inputs[index]).toBeInTheDocument();
+      
+     }
 
   })
 })
