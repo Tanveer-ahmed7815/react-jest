@@ -159,7 +159,7 @@ describe.skip('getAllByRole testing', () => {
   })
 })
 
-describe('getByLabelText/getAllByLabelText testing', () => {
+describe.skip('getByLabelText/getAllByLabelText testing', () => {
   test('getByLabelText testing', () => {
 
     render(<App />);
@@ -187,6 +187,26 @@ describe('getByLabelText/getAllByLabelText testing', () => {
     for (let index = 0; index < inputs.length; index++) {
       expect(inputs[index]).toBeInTheDocument();
       expect(inputs[index]).toHaveValue("Tanveer")
+      
+    }
+
+  })
+})
+
+describe('getByPlaceholderText testing', () => {
+  test('getByPlaceholderText testing', () => {
+    render(<App />);
+    // const inputs = screen.getByPlaceholderText("enter username")
+    // expect(inputs).toBeInTheDocument();
+    // expect(inputs).toHaveValue("Tanveer")
+
+  })
+  test('getByPlaceholderText testing', () => {
+    render(<App />);
+    const inputs = screen.getAllByPlaceholderText("enter username");
+    
+    for (let index = 0; index < inputs.length; index++) {
+      expect(inputs[index]).toBeInTheDocument();
       
     }
 

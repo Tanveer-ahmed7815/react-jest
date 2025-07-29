@@ -62,6 +62,11 @@ function App() {
 
       <br />
       <br />
+
+      <input type='text' placeholder='enter username' defaultValue={"Tanveer"}/>
+
+      <br />
+      <br />
       <label htmlFor='skills'>Skills</label>
       <input type='checkbox' id='skills' defaultChecked={true}/>
 
