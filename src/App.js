@@ -83,7 +83,7 @@ function App() {
       <br />
       <br />
 
-      <div data-testid="div-test-id">
+      <div element-id="div-test-id" data-testid="div-test-id">
         testing with testId
       </div>
       <br />

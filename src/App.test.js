@@ -1,8 +1,9 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, configure } from "@testing-library/react";
 import App from "./App";
 import renderer from 'react-test-renderer';
 import Users from "./Users";
 import handleOtherMethod from "./helper";
+configure({testIdAttribute:'element-id'})
 
 beforeAll(() => {
   console.log("-------------- Before all hook -------------")
@@ -232,7 +233,16 @@ describe.skip('getByPlaceholderText testing', () => {
   })
 })
 
-describe('getByTestId/getAllByTestId testing', () => {
+describe.skip('getByTestId/getAllByTestId testing', () => {
+  test('getByTestId testing', () => {
+    render(<App />);
+    const inputs = screen.getByTestId("div-test-id")
+    expect(inputs).toBeInTheDocument();
+
+  })
+})
+
+describe('Overrriding test testing', () => {
   test('getByTestId testing', () => {
     render(<App />);
     const inputs = screen.getByTestId("div-test-id")
