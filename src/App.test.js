@@ -251,10 +251,19 @@ describe.skip('Overrriding test testing', () => {
   })
 })
 
-describe('Testing with display value', () => {
+describe.skip('Testing with display value', () => {
   test('getByDisplayValue testing', () => {
     render(<App />);
     const inputs = screen.getByDisplayValue("Ahmed")
+    expect(inputs).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing with title', () => {
+  test('getByTitle testing', () => {
+    render(<App />);
+    const inputs = screen.getByTitle("click me button")
     expect(inputs).toBeInTheDocument();
 
   })

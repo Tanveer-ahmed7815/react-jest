@@ -91,6 +91,9 @@ function App() {
         <input type='text' defaultValue={"Ahmed"} />
       <br />
       <br />
+        <button title='click me button'>click me</button>
+      <br />
+      <br />
      <img title='AI Genrated Image' src='https://image.jimcdn.com/app/cms/image/transf/none/path/sa6549607c78f5c11/image/i4eeacaa2dbf12d6d/version/1490299332/most-beautiful-landscapes-in-europe-lofoten-european-best-destinations-copyright-iakov-kalinin.jpg3919321_1443393332_n.jpg'
      />
 
