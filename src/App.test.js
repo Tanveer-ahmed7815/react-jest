@@ -242,10 +242,19 @@ describe.skip('getByTestId/getAllByTestId testing', () => {
   })
 })
 
-describe('Overrriding test testing', () => {
+describe.skip('Overrriding test testing', () => {
   test('getByTestId testing', () => {
     render(<App />);
     const inputs = screen.getByTestId("div-test-id")
+    expect(inputs).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing with display value', () => {
+  test('getByDisplayValue testing', () => {
+    render(<App />);
+    const inputs = screen.getByDisplayValue("Ahmed")
     expect(inputs).toBeInTheDocument();
 
   })
