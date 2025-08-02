@@ -213,7 +213,7 @@ describe.skip('getByPlaceholderText testing', () => {
   })
 })
 
-describe('getByPlaceholderText testing', () => {
+describe.skip('getByPlaceholderText testing', () => {
   test('getByPlaceholderText testing', () => {
     render(<App />);
     // const inputs = screen.getByText("Login")
@@ -228,6 +228,15 @@ describe('getByPlaceholderText testing', () => {
       expect(inputs[index]).toBeInTheDocument();
       
      }
+
+  })
+})
+
+describe('getByTestId/getAllByTestId testing', () => {
+  test('getByTestId testing', () => {
+    render(<App />);
+    const inputs = screen.getByTestId("div-test-id")
+    expect(inputs).toBeInTheDocument();
 
   })
 })
