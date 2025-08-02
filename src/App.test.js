@@ -260,10 +260,19 @@ describe.skip('Testing with display value', () => {
   })
 })
 
-describe('Testing with title', () => {
+describe.skip('Testing with title', () => {
   test('getByTitle testing', () => {
     render(<App />);
     const inputs = screen.getByTitle("click me button")
+    expect(inputs).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing with Alt text', () => {
+  test('getByTitle testing', () => {
+    render(<App />);
+    const inputs = screen.getByAltText("dummy image")
     expect(inputs).toBeInTheDocument();
 
   })
