@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, configure, within } from "@testing-library/react";
+import { fireEvent, render, screen, configure, within, act } from "@testing-library/react";
 import App from "./App";
 import renderer from 'react-test-renderer';
 import Users from "./Users";
@@ -362,13 +362,29 @@ describe.skip('Testing for click event with user event library',  () => {
   })
 })
 
-describe('Testing for onchange event',  () => {
+describe.skip('Testing for onchange event',  () => {
   test('Onchange event testing', async () => {
     userEvent.setup();
     render(<App />);
 
     const el = screen.getByRole("textbox");
     await userEvent.type(el,"Tanveer")
+    expect(screen.getByText("Tanveer")).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for Act function',  () => {
+  test('Act function testing', async () => {
+    userEvent.setup();
+    render(<App />);
+
+    const el = screen.getByRole("textbox");
+    
+    await act(async () =>{
+      await userEvent.type(el,"Tanveer");
+    })
+
     expect(screen.getByText("Tanveer")).toBeInTheDocument();
 
   })
