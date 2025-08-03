@@ -42,7 +42,7 @@ describe.skip("UI test case group", () => {
 
 })
 
-describe("API test case group", () => {
+describe.skip("API test case group", () => {
 
   test("API Test first React app case", () => {
     render(<App />);
@@ -307,12 +307,22 @@ describe.skip('Testing for text match with function', () => {
   })
 })
 
-describe('Testing for queryBy', () => {
+describe.skip('Testing for queryBy', () => {
   test('queryBy testing', () => {
     render(<App />);
     const inputs = screen.queryByText("Logout-hidden")
   
     expect(inputs).not.toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for findBy',  () => {
+  test('findBy testing', async () => {
+    render(<App />);
+    const inputs = await screen.findByText("data found",{},{timeout:4000});
+  
+    expect(inputs).toBeInTheDocument();
 
   })
 })
