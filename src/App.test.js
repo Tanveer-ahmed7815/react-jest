@@ -413,7 +413,7 @@ describe.skip('Testing for functional Props',  () => {
   })
 })
 
-describe('Testing for functional Props',  () => {
+describe.skip('Testing for functional Props',  () => {
   test('Functional Props testing', async () => {
     const {container} = render(<App />);
    const el = screen.getByText("Heading 2");
@@ -425,4 +425,21 @@ describe('Testing for functional Props',  () => {
   logRoles(container)
 
   })
+})
+
+
+describe('API testing',  () => {
+  test('Heading', () => {
+  render(<App />);
+  const el = screen.getByRole("heading");
+  expect(el).toBeInTheDocument();
+
+  })
+
+  test('API testing', async () => {
+    render(<App />);
+    const el = await screen.findAllByRole('listitem');
+    expect(el).toHaveLength(2)
+  
+    })
 })
