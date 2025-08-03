@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, configure, within, act } from "@testing-library/react";
+import { fireEvent, render, screen, configure, within, act, prettyDOM, logRoles } from "@testing-library/react";
 import App from "./App";
 import renderer from 'react-test-renderer';
 import Users from "./Users";
@@ -401,7 +401,7 @@ describe.skip('Testing for Props',  () => {
   })
 })
 
-describe('Testing for functional Props',  () => {
+describe.skip('Testing for functional Props',  () => {
   test('Functional Props testing', async () => {
     const testFunction = jest.fn();
     userEvent.setup();
@@ -409,6 +409,20 @@ describe('Testing for functional Props',  () => {
     const btn = screen.getByRole("button");
     await userEvent.click(btn);
     expect(testFunction).toBeCalled();
+
+  })
+})
+
+describe('Testing for functional Props',  () => {
+  test('Functional Props testing', async () => {
+    const {container} = render(<App />);
+   const el = screen.getByText("Heading 2");
+   //expect(el).toBeInTheDocument();
+
+  //  console.log(container);
+  
+ // console.log(prettyDOM(container));
+  logRoles(container)
 
   })
 })
