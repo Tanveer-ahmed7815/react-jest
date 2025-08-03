@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, configure } from "@testing-library/react";
+import { fireEvent, render, screen, configure, within } from "@testing-library/react";
 import App from "./App";
 import renderer from 'react-test-renderer';
 import Users from "./Users";
@@ -327,12 +327,24 @@ describe.skip('Testing for findBy',  () => {
   })
 })
 
-describe('Testing for custome query',  () => {
+describe.skip('Testing for custome query',  () => {
   test('querySelector testing', () => {
     render(<App />);
 
     const element = document.querySelector('#testId')
     expect(element).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for Querying within elements',  () => {
+  test('Query within elements testing', () => {
+    render(<App />);
+
+    const element = screen.getByText("Hello world");
+    const subElement = within(element).getByText("Hi")
+    expect(element).toBeInTheDocument();
+    expect(subElement).toBeInTheDocument();
 
   })
 })
