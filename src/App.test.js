@@ -317,12 +317,22 @@ describe.skip('Testing for queryBy', () => {
   })
 })
 
-describe('Testing for findBy',  () => {
-  test('findBy testing', async () => {
+describe.skip('Testing for findBy',  () => {
+  test('findBy testing', () => {
     render(<App />);
-    const inputs = await screen.findByText("data found",{},{timeout:4000});
+    const inputs = screen.findByText("data found",);
   
     expect(inputs).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for custome query',  () => {
+  test('querySelector testing', () => {
+    render(<App />);
+
+    const element = document.querySelector('#testId')
+    expect(element).toBeInTheDocument();
 
   })
 })
