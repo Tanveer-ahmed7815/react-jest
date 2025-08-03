@@ -269,10 +269,26 @@ describe.skip('Testing with title', () => {
   })
 })
 
-describe('Testing with Alt text', () => {
+describe.skip('Testing with Alt text', () => {
   test('getByTitle testing', () => {
     render(<App />);
     const inputs = screen.getByAltText("dummy image")
+    expect(inputs).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for text match with String/regex', () => {
+  test('text match testing with string', () => {
+    render(<App />);
+    const inputs = screen.getByText("Text ",{exact:false})
+    expect(inputs).toBeInTheDocument();
+
+  })
+
+  test('text match testing with regex', () => {
+    render(<App />);
+    const inputs = screen.getByText(/text/)
     expect(inputs).toBeInTheDocument();
 
   })
