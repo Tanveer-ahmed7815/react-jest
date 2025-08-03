@@ -3,6 +3,7 @@ import App from "./App";
 import renderer from 'react-test-renderer';
 import Users from "./Users";
 import handleOtherMethod from "./helper";
+import userEvent from "@testing-library/user-event";
 configure({testIdAttribute:'element-id'})
 
 beforeAll(() => {
@@ -337,7 +338,7 @@ describe.skip('Testing for custome query',  () => {
   })
 })
 
-describe('Testing for Querying within elements',  () => {
+describe.skip('Testing for Querying within elements',  () => {
   test('Query within elements testing', () => {
     render(<App />);
 
@@ -345,6 +346,18 @@ describe('Testing for Querying within elements',  () => {
     const subElement = within(element).getByText("Hi")
     expect(element).toBeInTheDocument();
     expect(subElement).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for click event with user event library',  () => {
+  test('User event library testing', async () => {
+    userEvent.setup();
+    render(<App />);
+
+    const btn = screen.getByText("Click me");
+    await userEvent.click(btn);
+    expect(screen.getByText("hello")).toBeInTheDocument();
 
   })
 })
