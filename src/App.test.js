@@ -278,7 +278,7 @@ describe.skip('Testing with Alt text', () => {
   })
 })
 
-describe('Testing for text match with String/regex', () => {
+describe.skip('Testing for text match with String/regex', () => {
   test('text match testing with string', () => {
     render(<App />);
     const inputs = screen.getByText("Text ",{exact:false})
@@ -290,6 +290,29 @@ describe('Testing for text match with String/regex', () => {
     render(<App />);
     const inputs = screen.getByText(/text/)
     expect(inputs).toBeInTheDocument();
+
+  })
+})
+
+describe.skip('Testing for text match with function', () => {
+  test('text match testing with function', () => {
+    render(<App />);
+    //const inputs = screen.getByText((content,element)=> content.startsWith("Text"));
+    // const inputs = screen.getByText((content,element)=> content.endsWith("match"));
+    const inputs = screen.getByText((content,element)=> {
+      return content.includes("ex")
+    });
+    expect(inputs).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for queryBy', () => {
+  test('queryBy testing', () => {
+    render(<App />);
+    const inputs = screen.queryByText("Logout-hidden")
+  
+    expect(inputs).not.toBeInTheDocument();
 
   })
 })
