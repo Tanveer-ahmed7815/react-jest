@@ -6,12 +6,14 @@ import handleOtherMethod from './helper';
 
 function App() {
 
-  const [data,setData] = useState("")
+  const[name,setName] = useState("")
 
   return (
     <div className="App">
-      <h1>{data}</h1>
-      <button onClick={()=>setData("hello")}>Click me</button>
+      <h1>On change event testing</h1>
+      <h2>{name}</h2>
+      <input type='text' onChange={(e)=> setName(e.target.value)} placeholder='enter name'/>
+
     </div>
   );
 }

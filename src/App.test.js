@@ -350,7 +350,7 @@ describe.skip('Testing for Querying within elements',  () => {
   })
 })
 
-describe('Testing for click event with user event library',  () => {
+describe.skip('Testing for click event with user event library',  () => {
   test('User event library testing', async () => {
     userEvent.setup();
     render(<App />);
@@ -358,6 +358,18 @@ describe('Testing for click event with user event library',  () => {
     const btn = screen.getByText("Click me");
     await userEvent.click(btn);
     expect(screen.getByText("hello")).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for onchange event',  () => {
+  test('Onchange event testing', async () => {
+    userEvent.setup();
+    render(<App />);
+
+    const el = screen.getByRole("textbox");
+    await userEvent.type(el,"Tanveer")
+    expect(screen.getByText("Tanveer")).toBeInTheDocument();
 
   })
 })
