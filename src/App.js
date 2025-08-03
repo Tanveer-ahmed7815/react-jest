@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Users from './Users';
 import handleOtherMethod from './helper';
+import Employee from './Employee';
 
 function App() {
 
@@ -10,9 +11,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>On change event testing</h1>
-      <h2>{name}</h2>
-      <input type='text' onChange={(e)=> setName(e.target.value)} placeholder='enter name'/>
+    <h1>Props Testing</h1>
+    <Employee name="Ahmed" />
 
     </div>
   );

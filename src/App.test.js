@@ -4,6 +4,7 @@ import renderer from 'react-test-renderer';
 import Users from "./Users";
 import handleOtherMethod from "./helper";
 import userEvent from "@testing-library/user-event";
+import Employee from "./Employee";
 configure({testIdAttribute:'element-id'})
 
 beforeAll(() => {
@@ -374,7 +375,7 @@ describe.skip('Testing for onchange event',  () => {
   })
 })
 
-describe('Testing for Act function',  () => {
+describe.skip('Testing for Act function',  () => {
   test('Act function testing', async () => {
     userEvent.setup();
     render(<App />);
@@ -386,6 +387,16 @@ describe('Testing for Act function',  () => {
     })
 
     expect(screen.getByText("Tanveer")).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for Props',  () => {
+  test('Props testing', () => {
+    const name = "Tanveer";
+    render(<Employee name={name}/>);
+    const emp = screen.getByText(name)
+    expect(emp).toBeInTheDocument();
 
   })
 })
