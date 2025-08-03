@@ -5,14 +5,13 @@ import Users from './Users';
 import handleOtherMethod from './helper';
 import Employee from './Employee';
 
-function App() {
-
-  const[name,setName] = useState("")
+const App = (props) => {
 
   return (
     <div className="App">
-    <h1>Props Testing</h1>
-    <Employee name="Ahmed" />
+    <h1>Functional Props Testing and Mocking</h1>
+
+    <button onClick={props.testFunction}>Click</button>
 
     </div>
   );

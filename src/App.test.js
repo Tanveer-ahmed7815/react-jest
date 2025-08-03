@@ -391,12 +391,24 @@ describe.skip('Testing for Act function',  () => {
   })
 })
 
-describe('Testing for Props',  () => {
+describe.skip('Testing for Props',  () => {
   test('Props testing', () => {
     const name = "Tanveer";
     render(<Employee name={name}/>);
     const emp = screen.getByText(name)
     expect(emp).toBeInTheDocument();
+
+  })
+})
+
+describe('Testing for functional Props',  () => {
+  test('Functional Props testing', async () => {
+    const testFunction = jest.fn();
+    userEvent.setup();
+    render(<App testFunction = {testFunction}/>);
+    const btn = screen.getByRole("button");
+    await userEvent.click(btn);
+    expect(testFunction).toBeCalled();
 
   })
 })
